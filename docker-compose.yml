@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    container_name: dns-zone-console
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      DB_PATH: /data/dnszone.db
+      SESSION_TTL_HOURS: 12
+      # 首次初始化数据库时的默认账号密码（仅在建库时生效，生产环境务必修改）
+      ADMIN_PASSWORD: admin123
+      OPERATOR_PASSWORD: operator123
+      REVIEWER_PASSWORD: reviewer123
+    volumes:
+      - dnszone-data:/data
+    restart: unless-stopped
+
+volumes:
+  dnszone-data:

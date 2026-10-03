@@ -1,0 +1,18 @@
+{
+  "name": "dns-zone-console-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DNS 区域文件离线审定台 - 后端",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules
+data
+client/dist
+client/node_modules
+server/node_modules
+.git
+*.log
+Dockerfile
+docker-compose.yml
+.dockerignore
