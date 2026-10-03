@@ -1,0 +1,23 @@
+services:
+  dns-zone-console:
+    build: .
+    image: dns-zone-console:latest
+    container_name: dns-zone-console
+    ports:
+      - "8080:8080"
+    environment:
+      # 会话密钥：生产部署请修改
+      SESSION_SECRET: "change-me-to-a-random-secret"
+      # 初始本地账号（仅在数据库为空时创建；创建后改密需直接操作库）
+      ADMIN_USER: "admin"
+      ADMIN_PASSWORD: "admin123"
+      EDITOR_USER: "editor"
+      EDITOR_PASSWORD: "editor123"
+      REVIEWER_USER: "reviewer"
+      REVIEWER_PASSWORD: "reviewer123"
+    volumes:
+      - dns-console-data:/data
+    restart: unless-stopped
+
+volumes:
+  dns-console-data:
